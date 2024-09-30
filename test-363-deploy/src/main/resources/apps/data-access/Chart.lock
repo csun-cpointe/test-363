@@ -1,0 +1,6 @@
+dependencies:
+- name: aissemble-data-access-chart
+  repository: oci://ghcr.io/boozallen
+  version: 1.10.0-SNAPSHOT
+digest: sha256:c49a4803c6ce3a8e95267b0b10071f430cf2f92ef04a379ecd75ed24e5c8b9ed
+generated: "2024-09-30T15:10:26.798911-07:00"

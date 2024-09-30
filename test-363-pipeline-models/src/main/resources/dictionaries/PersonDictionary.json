@@ -1,0 +1,30 @@
+{
+  "name": "PersonDictionary",
+  "package": "simple.test.dictionary",
+  "dictionaryTypes": [
+    {
+      "name": "nameType",
+      "simpleType": "string"
+    },
+    {
+      "name": "ssnType",
+      "simpleType": "string"
+    },
+    {
+      "name": "string",
+      "simpleType": "string"
+    },
+    {
+      "name": "customCollection",
+      "simpleType": "set"
+    },
+    {
+      "name": "ageType",
+      "simpleType": "integer",
+      "validation": {
+        "maxValue": "12",
+        "minValue": "6"
+      }
+    }
+  ]
+}

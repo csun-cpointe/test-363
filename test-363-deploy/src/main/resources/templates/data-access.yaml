@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: data-access
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.spec.repo }}
+    path: test-363-deploy/src/main/resources/apps/data-access
+    targetRevision: {{ .Values.spec.targetRevision }}
+    {{ if .Values.spec.helm.valueFiles }}
+    helm:
+      valueFiles:
+        {{- range .Values.spec.helm.valueFiles }}
+        - {{ . }}
+        {{- end }}    
+    {{ end }}
+  destination:
+    namespace: argocd
+    server: {{ .Values.spec.destination.server }}
+  {{- with .Values.spec.syncPolicy }}
+  syncPolicy:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}

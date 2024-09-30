@@ -1,0 +1,35 @@
+########################################
+## CONFIG | Data Access Configs
+########################################
+
+# Data Access
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Override these values for the docker image built from the aiSSEMBLE Quarkus baseline image
+aissemble-data-access-chart:
+  aissemble-quarkus-chart:
+      app:
+        name: test-363-data-access
+      deployment:
+        image:
+          name: test-363-data-access-docker
+          repo: docker-registry-PLACEHOLDER/repository/
+          tag: 1.0.0-SNAPSHOT
+          imagePullPolicy: Always
+      ingress:
+        enabled: true
+        metadata:
+          annotations:
+            kubernetes.io/ingress.class: nginx
+        hosts:
+          - host: data-access-ai.boozallen.github.io
+            paths:
+              - path: /
+                pathType: Prefix
+                backend:
+                  service:
+                    name: data-access
+                    port:
+                      number: 8080
+        status: 10.192.83.167

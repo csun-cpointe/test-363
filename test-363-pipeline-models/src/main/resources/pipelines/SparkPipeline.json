@@ -1,0 +1,44 @@
+       {
+  "name": "SparkPipeline",
+  "package": "simple.test",
+  "type": {
+    "name": "data-flow",
+    "implementation": "data-delivery-spark"
+  },
+  "dataLineage": true,
+  "steps": [
+    {
+      "name": "EncryptDataTest",
+      "type": "synchronous",
+      "inbound": {
+        "type": "native",
+        "nativeCollectionType": {
+          "name": "customCollection",
+          "package": "simple.test.dictionary"
+        },
+        "recordType": {
+          "name": "Person",
+          "package": "simple.test.record"
+        }
+      }
+    },
+    {
+      "name": "PersistDataTest",
+      "type": "synchronous",
+      "inbound": {
+        "type": "messaging",
+        "channelName": "persistInboundChannel"
+      },
+      "outbound": {
+        "type": "messaging",
+        "channelName": "persistOutboundChannel"
+      },
+      "persist": {
+        "type": "hive"
+      },
+      "provenance": {
+        "enabled": false
+      }
+    }
+  ]
+}

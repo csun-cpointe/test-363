@@ -1,0 +1,35 @@
+{
+  "name": "Person",
+  "package": "simple.test.record",
+  "description": "Person custom record",
+  "fields": [
+    {
+      "name": "name",
+      "type": {
+        "name": "nameType",
+        "package": "simple.test.dictionary"
+      }
+    },
+    {
+      "name": "ssn",
+      "type": {
+        "name": "ssnType",
+        "package": "simple.test.dictionary"
+      }
+    },
+    {
+      "name": "age",
+      "type": {
+        "name": "ageType",
+        "package": "simple.test.dictionary"
+      }
+    },
+    {
+      "name": "employment",
+      "type": {
+        "name": "string",
+        "package": "simple.test.dictionary"
+      }
+    }
+  ]
+}
